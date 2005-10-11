@@ -17,12 +17,12 @@
 
 ;;; Author: Tony Garnock-Jones <tonyg@kcbbs.gen.nz>
 
-;; MzScheme v299-or-greater module wrapper for the portable code.
-;; Use xxexpr-209.ss for older versions of MzScheme!
+;; MzScheme v209 module wrapper for the portable code.
+;; Use xxexpr.ss for newer versions of MzScheme!
 
-(module xxexpr mzscheme
+(module xxexpr-209 mzscheme
   (require (lib "list.ss" "srfi" "1")
-	   (only (lib "13.ss" "srfi") string-concatenate string-fold)
+	   (lib "13.ss" "srfi")
 	   (lib "include.ss"))
 
   (provide xml-empty-tags-mode

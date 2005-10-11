@@ -1,5 +1,6 @@
 ;;; <xxexpr.ss> ---- Manipulation of eXtended Xml EXPRessions.
 ;;; Copyright (C) 2004 by Tony Garnock-Jones.
+;;; Copyright (C) 2005 by LShift Ltd. <query@lshift.net>
 
 ;;; This is free software; you can redistribute it and/or
 ;;; modify it under the terms of the GNU Lesser General Public
@@ -17,21 +18,21 @@
 
 ;;; Author: Tony Garnock-Jones <tonyg@kcbbs.gen.nz>
 
-;; MzScheme v299-or-greater module wrapper for the portable code.
-;; Use xxexpr-209.ss for older versions of MzScheme!
+(require-library 'sisc/libs/srfi/srfi-1)
+(require-library 'sisc/libs/srfi/srfi-13)
 
-(module xxexpr mzscheme
-  (require (lib "list.ss" "srfi" "1")
-	   (only (lib "13.ss" "srfi") string-concatenate string-fold)
-	   (lib "include.ss"))
-
-  (provide xml-empty-tags-mode
-	   xml-double-quotes-mode
-	   xxexpr->string
-	   xxexpr->string/notags
-	   write-xxexpr
-	   pretty-print-xxexpr
-	   write-xxexpr/notags)
-
+(module xxexpr
+    (xml-empty-tags-mode
+     xml-double-quotes-mode
+     xxexpr->string
+     xxexpr->string/notags
+     write-xxexpr
+     pretty-print-xxexpr
+     write-xxexpr/notags)
+  
+  (import srfi-1)
+  (import srfi-13)
+  (import string-io)
+  
   (include "portable-xxexpr.scm")
 )
