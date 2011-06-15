@@ -5,10 +5,9 @@ high-quality XML reading tools for Scheme, but doesn’t include a
 general purpose XML writer. Over the past couple of years, a few of my
 projects have had a need to convert SXML-like data to an XML 1.0
 external representation, and so I’ve written a portable SXML-to-XML
-printing library (both a snapshot and a darcs repository). The library
-has been used with Chicken, MzScheme, and SISC, and currently includes
-module wrappers for Mzscheme and SISC (or other psyntax-based
-Schemes).
+printing library. The library has been used with Chicken, MzScheme,
+and SISC, and currently includes module wrappers for Mzscheme and SISC
+(or other psyntax-based Schemes).
 
 The library is parameterized over a choice of double- or single-quotes
 for attribute printing, and can, if required, be instructed to use
@@ -20,22 +19,22 @@ pretty-printing an XML fragment with indentation. For example,
     (pretty-print-xxexpr
      (let ((title "My Page"))
        (list
-	'(*pi* xml (version "1.0"))
-	`(html (head (title ,title))
-	       (body (h1 ,title)
-		     (p "Hello, world!"))))))
+        '(*pi* xml (version "1.0"))
+        `(html (head (title ,title))
+               (body (h1 ,title)
+                     (p "Hello, world!"))))))
 
 produces the following output:
 
     <?xml version='1.0'?>
     <html>
-	<head>
-	    <title>My Page</title>
-	</head>
-	<body>
-	    <h1>My Page</h1>
-	    <p>Hello, world!</p>
-	</body>
+        <head>
+            <title>My Page</title>
+        </head>
+        <body>
+            <h1>My Page</h1>
+            <p>Hello, world!</p>
+        </body>
     </html>
 
 The code is available on github, at https://github.com/tonyg/xxexpr/.
