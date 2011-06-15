@@ -6,8 +6,7 @@ general purpose XML writer. Over the past couple of years, a few of my
 projects have had a need to convert SXML-like data to an XML 1.0
 external representation, and so I’ve written a portable SXML-to-XML
 printing library. The library has been used with Chicken, MzScheme,
-and SISC, and currently includes module wrappers for Mzscheme and SISC
-(or other psyntax-based Schemes).
+SISC, and Scheme48 to date.
 
 The library is parameterized over a choice of double- or single-quotes
 for attribute printing, and can, if required, be instructed to use
