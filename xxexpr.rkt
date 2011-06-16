@@ -16,7 +16,7 @@
 ;;; License along with this software; if not, write to the Free Software
 ;;; Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
 
-;;; Author: Tony Garnock-Jones <tonyg@kcbbs.gen.nz>
+;;; Author: Tony Garnock-Jones <tonygarnockjones@gmail.com>
 
 ;; Racket v5.x module wrapper for the portable code.
 ;; Use xxexpr.ss and xxexpr-209.ss for MzScheme.
