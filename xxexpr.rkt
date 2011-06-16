@@ -1,4 +1,5 @@
-;;; <xxexpr-s48.scm> ---- Scheme48 glue for portable-xxexpr.scm.
+#lang racket
+;;; <xxexpr.rkt> ---- Manipulation of eXtended Xml EXPRessions.
 ;;; Copyright (C) 2011 by Tony Garnock-Jones.
 
 ;;; This is free software; you can redistribute it and/or
@@ -17,23 +18,18 @@
 
 ;;; Author: Tony Garnock-Jones <tonyg@kcbbs.gen.nz>
 
-(define-structure xxexpr
-  (export xml-empty-tags-mode
-	  xml-double-quotes-mode
-	  xxexpr->string
-	  xxexpr->string/notags
-	  write-xxexpr
-	  pretty-print-xxexpr
-	  write-xxexpr/notags)
-  (open scheme)
-  (open srfi-1)
-  (open srfi-6)
-  (open srfi-13)
-  (open srfi-23)
-  (open srfi-39)
-  (begin (define-syntax when
-	   (syntax-rules ()
-	     ((_ test body ...)
-	      (if test
-		  (begin body ...))))))
-  (files "portable-xxexpr.scm"))
+;; Racket v5.x module wrapper for the portable code.
+;; Use xxexpr.ss and xxexpr-209.ss for MzScheme.
+
+(require srfi/1
+	 srfi/13)
+
+(provide xml-empty-tags-mode
+	 xml-double-quotes-mode
+	 xxexpr->string
+	 xxexpr->string/notags
+	 write-xxexpr
+	 pretty-print-xxexpr
+	 write-xxexpr/notags)
+
+(include "portable-xxexpr.scm")

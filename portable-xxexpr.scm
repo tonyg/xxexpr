@@ -153,9 +153,9 @@
 			   (cddr x)
 			   (cdr x)))
 		 (attrs (or attrs* '())))
-	    (if (not (or (symbol? tag)
-			 (string? tag)))
-		(error "Tag must be string or symbol" tag))
+	    (when (not (or (symbol? tag)
+			   (string? tag)))
+	      (error "Tag must be string or symbol" tag))
 	    (case tag
 	      ((& %)		(show-entity-ref tag (car body)))
 	      ((*literal*)	(cdr x))
@@ -199,10 +199,9 @@
 	(define (newline-and-indent)
 	  (if at-beginning
 	      (set! at-beginning #f)
-	      (if pretty
-		  (begin
-		    (p #\newline)
-		    (p (make-string indent #\space))))))
+	      (when pretty
+		(p #\newline)
+		(p (make-string indent #\space)))))
 	(define (bump-indent! up)
 	  (set! indent ((if up + -) indent *delta*)))
 	(let walk ((v v))
@@ -220,7 +219,7 @@
 	       (set! last-was-tag #t))
 	      ((close)
 	       (bump-indent! #f)
-	       (if last-was-tag (newline-and-indent)))
+	       (when last-was-tag (newline-and-indent)))
 	      (else (error "Unknown pretty-printing directive in xxexpr" (vector-ref v 0))))
 	    (walk (vector-ref v 1))
 	    (set! last-was-tag #t))
